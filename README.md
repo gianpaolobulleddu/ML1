@@ -1,2 +1,2 @@
 # ML1
-Shared Repository for class tasks
+Shared Repository for Machine Learning class tasks
