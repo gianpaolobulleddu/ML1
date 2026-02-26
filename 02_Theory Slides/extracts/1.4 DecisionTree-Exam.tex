@@ -1,0 +1,548 @@
+
+\documentclass[3pt]{article}
+
+\begin{document}
+	
+	DECISION TREES — ADVANCED EXAM WITH ANSWERS
+	
+\vspace{0.3em}
+
+	==================================================
+	
+	PARAGRAPH 1 — DECISION TREE BASICS
+	
+	\begin{enumerate}
+		\item A decision tree is mainly used for:
+		\begin{enumerate}
+			\item Clustering
+			\item Classification
+			\item Dimensionality reduction
+			\item Optimization
+		\end{enumerate}
+		
+		\item In a decision tree, internal nodes represent:
+		\begin{enumerate}
+			\item Class labels
+			\item Attribute tests
+			\item Training instances
+			\item Probabilities
+		\end{enumerate}
+		
+		\item Leaves of a decision tree represent:
+		\begin{enumerate}
+			\item Attributes
+			\item Thresholds
+			\item Class labels
+			\item Features
+		\end{enumerate}
+		
+		\item Branches leaving a node correspond to:
+		\begin{enumerate}
+			\item Classes
+			\item Attribute values
+			\item Weights
+			\item Errors
+		\end{enumerate}
+		
+		\item Decision trees are learned using:
+		\begin{enumerate}
+			\item Unsupervised learning
+			\item Supervised learning
+			\item Reinforcement learning
+			\item Self-supervised learning
+		\end{enumerate}
+		
+		\item Traversing a tree means:
+		\begin{enumerate}
+			\item Updating weights
+			\item Evaluating attributes sequentially
+			\item Computing probabilities
+			\item Optimizing loss
+		\end{enumerate}
+		
+		\item A decision tree classifier is:
+		\begin{enumerate}
+			\item Probabilistic
+			\item Deterministic
+			\item Stochastic
+			\item Randomized
+		\end{enumerate}
+		
+		\item Each internal node usually tests:
+		\begin{enumerate}
+			\item All attributes
+			\item One attribute
+			\item All classes
+			\item One instance
+		\end{enumerate}
+		
+		\item Decision trees can be interpreted as:
+		\begin{enumerate}
+			\item Black-box models
+			\item Rule-based models
+			\item Neural networks
+			\item Kernel machines
+		\end{enumerate}
+		
+		\item A main advantage of decision trees is:
+		\begin{enumerate}
+			\item High interpretability
+			\item Low variance
+			\item Convex optimization
+			\item Probabilistic outputs
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3C, 4B, 5B, 6B, 7B, 8B, 9B, 10A
+	
+\vspace{0.3em}
+
+	==================================================
+	
+	PARAGRAPH 2 — LOGICAL INTERPRETATION (RULES)
+	
+	\begin{enumerate}
+		\item A root-to-leaf path represents:
+		\begin{enumerate}
+			\item A disjunction
+			\item A conjunction
+			\item A negation
+			\item A probability
+		\end{enumerate}
+		
+		\item A complete decision tree represents:
+		\begin{enumerate}
+			\item A conjunction of disjunctions
+			\item A disjunction of conjunctions
+			\item A single rule
+			\item A linear classifier
+		\end{enumerate}
+		
+		\item Each rule extracted from a tree corresponds to:
+		\begin{enumerate}
+			\item One attribute
+			\item One branch
+			\item One path
+			\item One node
+		\end{enumerate}
+		
+		\item Decision tree rules are usually:
+		\begin{enumerate}
+			\item Probabilistic
+			\item Fuzzy
+			\item Deterministic
+			\item Approximate
+		\end{enumerate}
+		
+		\item If an instance satisfies multiple rules:
+		\begin{enumerate}
+			\item A conflict occurs
+			\item One leaf is reached
+			\item Probabilities are averaged
+			\item Classification fails
+		\end{enumerate}
+		
+		\item Rule extraction improves:
+		\begin{enumerate}
+			\item Accuracy
+			\item Interpretability
+			\item Training speed
+			\item Generalization
+		\end{enumerate}
+		
+		\item Logical form of trees is typically:
+		\begin{enumerate}
+			\item CNF
+			\item DNF
+			\item Linear
+			\item Polynomial
+		\end{enumerate}
+		
+		\item Each rule ends with:
+		\begin{enumerate}
+			\item Attribute test
+			\item Class assignment
+			\item Probability estimate
+			\item Threshold
+		\end{enumerate}
+		
+		\item Removing a rule corresponds to:
+		\begin{enumerate}
+			\item Removing a leaf
+			\item Removing a root
+			\item Removing an attribute
+			\item Removing all branches
+		\end{enumerate}
+		
+		\item Rule-based form is useful for:
+		\begin{enumerate}
+			\item Model explanation
+			\item Kernel design
+			\item Gradient computation
+			\item Dimensionality reduction
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3C, 4C, 5B, 6B, 7B, 8B, 9A, 10A
+	
+\vspace{0.3em}
+
+	==================================================
+	
+	PARAGRAPH 3 — SPACE PARTITIONING
+	
+	\begin{enumerate}
+		\item Decision trees partition the feature space into:
+		\begin{enumerate}
+			\item Spheres
+			\item Hyperplanes
+			\item Hyperrectangles
+			\item Clusters
+		\end{enumerate}
+		
+		\item Each leaf corresponds to:
+		\begin{enumerate}
+			\item One point
+			\item One region
+			\item One attribute
+			\item One probability
+		\end{enumerate}
+		
+		\item Decision boundaries of trees are:
+		\begin{enumerate}
+			\item Linear
+			\item Oblique
+			\item Axis-aligned
+			\item Circular
+		\end{enumerate}
+		
+		\item Axis-aligned splits test:
+		\begin{enumerate}
+			\item Linear combinations
+			\item Single attributes
+			\item All attributes
+			\item Class labels
+		\end{enumerate}
+		
+		\item Increasing tree depth causes:
+		\begin{enumerate}
+			\item Fewer regions
+			\item Larger regions
+			\item More regions
+			\item No change
+		\end{enumerate}
+		
+		\item Each split reduces:
+		\begin{enumerate}
+			\item Feature dimension
+			\item Instance count per node
+			\item Number of attributes globally
+			\item Label space
+		\end{enumerate}
+		
+		\item Regions created by trees are:
+		\begin{enumerate}
+			\item Overlapping
+			\item Disjoint
+			\item Probabilistic
+			\item Fuzzy
+		\end{enumerate}
+		
+		\item Decision trees can model:
+		\begin{enumerate}
+			\item Linear boundaries only
+			\item Arbitrary shapes via partitions
+			\item Circular regions directly
+			\item Kernelized spaces
+		\end{enumerate}
+		
+		\item Space partitioning is:
+		\begin{enumerate}
+			\item Global
+			\item Local and recursive
+			\item Random
+			\item Gradient-based
+		\end{enumerate}
+		
+		\item A shallow tree yields:
+		\begin{enumerate}
+			\item Complex regions
+			\item Simple regions
+			\item High variance
+			\item Overfitting
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1C, 2B, 3C, 4B, 5C, 6B, 7B, 8B, 9B, 10B
+	
+\vspace{0.3em}
+
+	==================================================
+	
+	PARAGRAPH 4 — TREE GENERATION ALGORITHMS
+	
+	\begin{enumerate}
+		\item ID3 is an algorithm for:
+		\begin{enumerate}
+			\item Regression trees
+			\item Classification trees
+			\item Clustering
+			\item Reinforcement learning
+		\end{enumerate}
+		
+		\item ID3 builds trees:
+		\begin{enumerate}
+			\item Bottom-up
+			\item Top-down
+			\item Randomly
+			\item Backtracking
+		\end{enumerate}
+		
+		\item At each node, ID3 selects:
+		\begin{enumerate}
+			\item Random attribute
+			\item Attribute with highest information gain
+			\item Attribute with lowest variance
+			\item Attribute with most values
+		\end{enumerate}
+		
+		\item ID3 stops splitting when:
+		\begin{enumerate}
+			\item Accuracy is maximum
+			\item All attributes are used
+			\item Dataset is empty or pure
+			\item Depth is fixed
+		\end{enumerate}
+		
+		\item After splitting, the chosen attribute is:
+		\begin{enumerate}
+			\item Reused
+			\item Ignored temporarily
+			\item Removed from branch
+			\item Randomized
+		\end{enumerate}
+		
+		\item ID3 handles continuous attributes:
+		\begin{enumerate}
+			\item Directly
+			\item With thresholds
+			\item Not natively
+			\item Probabilistically
+		\end{enumerate}
+		
+		\item ID3 was proposed by:
+		\begin{enumerate}
+			\item Breiman
+			\item Quinlan
+			\item Vapnik
+			\item Hastie
+		\end{enumerate}
+		
+		\item ID3 evaluates attributes using:
+		\begin{enumerate}
+			\item Gini index
+			\item Entropy
+			\item Variance
+			\item Error rate
+		\end{enumerate}
+		
+		\item ID3 produces trees that tend to:
+		\begin{enumerate}
+			\item Underfit
+			\item Overfit
+			\item Be optimal
+			\item Be shallow
+		\end{enumerate}
+		
+		\item ID3 assumes attributes are:
+		\begin{enumerate}
+			\item Continuous
+			\item Binary only
+			\item Discrete
+			\item Ordered
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3B, 4C, 5C, 6C, 7B, 8B, 9B, 10C
+	
+\vspace{0.3em}
+
+	==================================================
+	
+	PARAGRAPH 5 — ENTROPY AND INFORMATION GAIN
+	
+	\begin{enumerate}
+		\item Entropy measures:
+		\begin{enumerate}
+			\item Accuracy
+			\item Uncertainty
+			\item Error rate
+			\item Variance
+		\end{enumerate}
+		
+		\item Entropy is minimum when:
+		\begin{enumerate}
+			\item Classes are balanced
+			\item One class dominates
+			\item Attributes are many
+			\item Samples are few
+		\end{enumerate}
+		
+		\item Entropy is maximum when:
+		\begin{enumerate}
+			\item One class exists
+			\item Classes are equally distributed
+			\item No attributes exist
+			\item Tree is shallow
+		\end{enumerate}
+		
+		\item Information gain measures:
+		\begin{enumerate}
+			\item Remaining entropy
+			\item Reduction in entropy
+			\item Classification accuracy
+			\item Tree depth
+		\end{enumerate}
+		
+		\item An attribute with high gain:
+		\begin{enumerate}
+			\item Increases uncertainty
+			\item Reduces uncertainty
+			\item Is random
+			\item Has many values
+		\end{enumerate}
+		
+		\item Weighted entropy accounts for:
+		\begin{enumerate}
+			\item Tree depth
+			\item Sample proportions
+			\item Attribute count
+			\item Label count
+		\end{enumerate}
+		
+		\item Gain is computed as:
+		\begin{enumerate}
+			\item Entropy minus weighted entropy
+			\item Weighted entropy minus entropy
+			\item Sum of entropies
+			\item Average entropy
+		\end{enumerate}
+		
+		\item Attributes with many values may:
+		\begin{enumerate}
+			\item Be penalized
+			\item Be favored
+			\item Be ignored
+			\item Have zero gain
+		\end{enumerate}
+		
+		\item Entropy uses logarithm base:
+		\begin{enumerate}
+			\item 10
+			\item e
+			\item 2
+			\item n
+		\end{enumerate}
+		
+		\item Information gain is used to:
+		\begin{enumerate}
+			\item Prune trees
+			\item Select split attributes
+			\item Compute probabilities
+			\item Normalize data
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3B, 4B, 5B, 6B, 7A, 8B, 9C, 10B
+	
+\vspace{0.3em}
+
+	==================================================
+	
+	PARAGRAPH 6 — OVERFITTING AND PRUNING
+	
+	\begin{enumerate}
+		\item Overfitting occurs when:
+		\begin{enumerate}
+			\item Tree is too shallow
+			\item Tree memorizes noise
+			\item Data is balanced
+			\item Entropy is low
+		\end{enumerate}
+		
+		\item ID3 is prone to overfitting because:
+		\begin{enumerate}
+			\item It stops early
+			\item It grows until purity
+			\item It uses gain
+			\item It ignores labels
+		\end{enumerate}
+		
+		\item Pre-pruning means:
+		\begin{enumerate}
+			\item Cutting after training
+			\item Stopping early
+			\item Removing attributes
+			\item Random splitting
+		\end{enumerate}
+		
+		\item Post-pruning means:
+		\begin{enumerate}
+			\item Stopping early
+			\item Removing branches after growth
+			\item Adding branches
+			\item Changing attributes
+		\end{enumerate}
+		
+		\item Pruning improves:
+		\begin{enumerate}
+			\item Training accuracy
+			\item Interpretability
+			\item Generalization
+			\item Tree depth
+		\end{enumerate}
+		
+		\item Noise mainly affects:
+		\begin{enumerate}
+			\item Root node
+			\item Deep leaves
+			\item Attribute selection
+			\item Class labels only
+		\end{enumerate}
+		
+		\item Very deep trees usually have:
+		\begin{enumerate}
+			\item High bias
+			\item High variance
+			\item Low variance
+			\item No variance
+		\end{enumerate}
+		
+		\item Pruning trades off:
+		\begin{enumerate}
+			\item Bias and variance
+			\item Speed and memory
+			\item Accuracy and entropy
+			\item Attributes and labels
+		\end{enumerate}
+		
+		\item Pruned trees are generally:
+		\begin{enumerate}
+			\item Less interpretable
+			\item More interpretable
+			\item Random
+			\item Unstable
+		\end{enumerate}
+		
+		\item The goal of pruning is to:
+		\begin{enumerate}
+			\item Maximize depth
+			\item Minimize error on training data
+			\item Improve performance on unseen data
+			\item Eliminate entropy
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3B, 4B, 5C, 6B, 7B, 8A, 9B, 10C
+	
+\end{document}

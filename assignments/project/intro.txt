@@ -1,0 +1,67 @@
+# ===== Bank Marketing Classification in Julia =====
+using CSV, DataFrames, CategoricalArrays, MLJ, MLJBase, MLJFlux
+
+# 1️⃣ Load dataset
+df = CSV.read("bank-full.csv", DataFrame; delim=';')
+
+# 2️⃣ Convert categorical columns
+categorical_cols = [:job, :marital, :education, :default, :housing, :loan,
+                    :contact, :month, :poutcome, :y]
+for col in categorical_cols
+    df[!, col] = CategoricalArray(df[!, col])
+end
+
+# 3️⃣ One-hot encode features (exclude target)
+X, y = unpack(df, ==(:y), colname -> colname != :y; onehot=true)
+
+# 4️⃣ Scale numeric features for SVM, k-NN, ANN
+numeric_cols = names(X, Real)
+stand_model = Standardizer()
+stand_machine = machine(stand_model, X[:, numeric_cols])
+fit!(stand_machine)
+X[:, numeric_cols] = transform(stand_machine, X[:, numeric_cols])
+
+# 5️⃣ Train/test split
+train, test = partition(eachindex(y), 0.8, shuffle=true)
+X_train, X_test = X[train, :], X[test, :]
+y_train, y_test = y[train], y[test]
+
+# 6️⃣ Define models
+Tree = @load DecisionTreeClassifier pkg=DecisionTree
+tree_model = Tree()
+tree_machine = machine(tree_model, X_train, y_train)
+fit!(tree_machine)
+y_pred_tree = predict(tree_machine, X_test)
+acc_tree = accuracy(y_pred_tree, y_test)
+f1_tree = f1score(y_pred_tree, y_test)
+
+KNN = @load KNNClassifier pkg=NearestNeighborModels
+knn_model = KNN(K=5)
+knn_machine = machine(knn_model, X_train, y_train)
+fit!(knn_machine)
+y_pred_knn = predict(knn_machine, X_test)
+acc_knn = accuracy(y_pred_knn, y_test)
+f1_knn = f1score(y_pred_knn, y_test)
+
+SVC = @load SVC pkg=LIBSVM
+svm_model = SVC()
+svm_machine = machine(svm_model, X_train, y_train)
+fit!(svm_machine)
+y_pred_svm = predict(svm_machine, X_test)
+acc_svm = accuracy(y_pred_svm, y_test)
+f1_svm = f1score(y_pred_svm, y_test)
+
+# 7️⃣ ANN using MLJFlux
+ann_model = NeuralNetworkClassifier(n_hidden=32, epochs=50)
+ann_machine = machine(ann_model, X_train, y_train)
+fit!(ann_machine)
+y_pred_ann = predict(ann_machine, X_test)
+acc_ann = accuracy(y_pred_ann, y_test)
+f1_ann = f1score(y_pred_ann, y_test)
+
+# 8️⃣ Print results
+println("=== Bank Marketing Dataset Classification Results ===")
+println("Decision Tree  -> Accuracy: $(round(acc_tree, digits=4)), F1: $(round(f1_tree, digits=4))")
+println("k-NN           -> Accuracy: $(round(acc_knn, digits=4)), F1: $(round(f1_knn, digits=4))")
+println("SVM            -> Accuracy: $(round(acc_svm, digits=4)), F1: $(round(f1_svm, digits=4))")
+println("ANN (MLP)      -> Accuracy: $(round(acc_ann, digits=4)), F1: $(round(f1_ann, digits=4))")

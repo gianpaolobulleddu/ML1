@@ -1,0 +1,599 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb, geometry}
+\usepackage[T1]{fontenc}
+\usepackage{geometry} % OK, already present in your document
+
+\geometry{margin=1in}
+
+% Global fixes for overfull boxes
+\setlength{\emergencystretch}{1em}
+\sloppy
+
+\begin{document}
+	
+	\title{SVM Slides}
+	\author{}
+	\date{}
+	\maketitle
+
+
+\subsection*{Page 1 — Introduction}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Introduction to Support Vector Machines (SVM).
+	\item Part of the course \emph{Machine Learning I}.
+\end{itemize}
+
+\textbf{Exam-style questions}
+
+\begin{enumerate}
+	\item What is the primary task of Support Vector Machines?
+	\begin{enumerate}
+		\item Clustering
+		\item Dimensionality reduction
+		\item Classification
+		\item Reinforcement learning
+		\item Feature extraction
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item Are SVMs supervised or unsupervised learning methods?
+	\begin{enumerate}
+		\item Unsupervised
+		\item Supervised
+		\item Semi-supervised
+		\item Reinforcement-based
+		\item Self-supervised
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item What type of output does a basic SVM produce?
+	\begin{enumerate}
+		\item Continuous probability
+		\item Cluster index
+		\item Binary label
+		\item Ranking score
+		\item Regression value
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: SVMs were originally designed for regression.
+	\begin{enumerate}
+		\item True
+		\item False
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item In which academic field do SVMs belong?
+	\begin{enumerate}
+		\item Computer Graphics
+		\item Databases
+		\item Machine Learning
+		\item Operating Systems
+		\item Software Engineering
+	\end{enumerate}
+	\textbf{Answer: (c)}
+\end{enumerate}
+
+\subsection*{Page 2 — Origin and Motivation}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item SVMs are derived from Statistical Learning Theory.
+	\item Introduced by Vapnik and Chervonenkis in 1992.
+\end{itemize}
+
+\textbf{Exam-style questions}
+
+\begin{enumerate}
+	\item SVMs are grounded in which theory?
+	\begin{enumerate}
+		\item Bayesian Theory
+		\item Statistical Learning Theory
+		\item Information Theory
+		\item Game Theory
+		\item Graph Theory
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item Who introduced Support Vector Machines?
+	\begin{enumerate}
+		\item Hinton and LeCun
+		\item Vapnik and Chervonenkis
+		\item Bishop and Jordan
+		\item Pearl and Judea
+		\item Rumelhart and McClelland
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item When were SVMs introduced?
+	\begin{enumerate}
+		\item 1985
+		\item 1990
+		\item 1992
+		\item 1998
+		\item 2005
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item What is a major advantage of SVMs?
+	\begin{enumerate}
+		\item Low computational cost
+		\item No need for labeled data
+		\item Strong theoretical guarantees
+		\item Automatic feature extraction
+		\item No hyperparameters
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: SVMs always outperform neural networks.
+	\begin{enumerate}
+		\item True
+		\item False
+	\end{enumerate}
+	\textbf{Answer: (b)}
+\end{enumerate}
+
+\subsection*{Page 3 — Training Data}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Each training example is a pair $(\mathbf{x}_i, y_i)$.
+	\item $\mathbf{x}_i \in \mathbb{R}^n$ is a feature vector.
+	\item $y_i \in \{+1, -1\}$ is the class label.
+\end{itemize}
+
+\begin{enumerate}
+	\item What does $\mathbf{x}_i$ represent?
+	\begin{enumerate}
+		\item A class label
+		\item A feature vector
+		\item A probability
+		\item A margin
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item True or False: SVM labels are continuous values.
+	
+	\textbf{Answer: False}
+	
+	\item If $\mathbf{x}_i \in \mathbb{R}^5$, how many features does sample $i$ have?
+	
+	\textbf{Answer: 5}
+\end{enumerate}
+
+
+\subsection*{Page 4 — Hyperplane Definition}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item A hyperplane is defined as $\mathbf{w}^\top \mathbf{x} + b = 0$.
+	\item $\mathbf{w}$ controls orientation, $b$ controls offset.
+\end{itemize}
+
+\begin{enumerate}
+	\item What does $b$ control?
+	\begin{enumerate}
+		\item Margin width
+		\item Orientation
+		\item Offset of hyperplane
+		\item Dimensionality
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: $\mathbf{w}$ is orthogonal to the hyperplane.
+	
+	\textbf{Answer: True}
+	
+	\item If $\mathbf{w} = (2,1)$ and $b=0$, write the hyperplane equation.
+	
+	\textbf{Answer: $2x_1 + x_2 = 0$}
+\end{enumerate}
+
+
+\subsection*{Pages 5--7 — Classification Rule}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Decision function: $f(\mathbf{x}) = \mathbf{w}^\top \mathbf{x} + b$.
+	\item Class is determined by the sign of $f(\mathbf{x})$.
+\end{itemize}
+
+\begin{enumerate}
+	\item When is a sample classified as $+1$?
+	\begin{enumerate}
+		\item When $f(\mathbf{x}) < 0$
+		\item When $f(\mathbf{x}) = 0$
+		\item When $f(\mathbf{x}) > 0$
+		\item Always
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: $f(\mathbf{x})=0$ lies on the decision boundary.
+	
+	\textbf{Answer: True}
+	
+	\item If $f(\mathbf{x})=-2.7$, what is the predicted class?
+	
+	\textbf{Answer: $-1$}
+\end{enumerate}
+
+
+
+\subsection*{Pages 8--11 — Multiple Hyperplanes}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Many hyperplanes may separate the same training data.
+	\item They differ in generalization performance.
+\end{itemize}
+
+\begin{enumerate}
+	\item Why are not all separating hyperplanes equivalent?
+	\begin{enumerate}
+		\item Same margin
+		\item Same error
+		\item Different generalization
+		\item Different labels
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: Any separating hyperplane is optimal.
+	
+	\textbf{Answer: False}
+	
+	\item How many hyperplanes can separate linearly separable data?
+	
+	\textbf{Answer: Infinitely many}
+\end{enumerate}
+
+
+
+\subsection*{Pages 12--17 — Margin Motivation}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Hyperplanes too close to data are unstable.
+	\item Noise may cause misclassification.
+\end{itemize}
+
+\begin{enumerate}
+	\item What problem arises with small margins?
+	\begin{enumerate}
+		\item Underfitting
+		\item Instability
+		\item High bias
+		\item No solution
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item True or False: Larger margins improve robustness.
+	
+	\textbf{Answer: True}
+	
+	\item If margin doubles, what happens to robustness?
+	
+	\textbf{Answer: It increases}
+\end{enumerate}
+
+
+\subsection*{Pages 18--20 — Margin Definition}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Margin is the distance between class boundaries.
+	\item SVM maximizes the margin.
+\end{itemize}
+
+\begin{enumerate}
+	\item What does SVM optimize?
+	\begin{enumerate}
+		\item Training error
+		\item Likelihood
+		\item Margin width
+		\item Distance to origin
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: All points affect the margin equally.
+	
+	\textbf{Answer: False}
+	
+	\item Which samples define the margin?
+	
+	\textbf{Answer: Support vectors}
+\end{enumerate}
+
+
+\subsection*{Pages 21--25 — Margin and Support Vectors}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Margin is the distance between the two class-separating hyperplanes.
+	\item The optimal hyperplane maximizes this margin.
+	\item The simplest SVM is the Linear SVM (LSVM).
+\end{itemize}
+
+\begin{enumerate}
+	\item What is the margin in SVM?
+	\begin{enumerate}
+		\item Distance between centroids
+		\item Distance between class means
+		\item Distance between separating hyperplanes
+		\item Distance from origin
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: A larger margin improves generalization.
+	
+	\textbf{Answer: True}
+	
+	\item What type of SVM is obtained for perfectly separable data?
+	
+	\textbf{Answer: Linear (hard-margin) SVM}
+\end{enumerate}
+
+
+\subsection*{Pages 26--29 — Support Vectors}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Support vectors are the samples that lie on the margin boundaries.
+	\item Only support vectors determine the optimal hyperplane.
+	\item Other samples can be ignored once the solution is found.
+\end{itemize}
+
+\begin{enumerate}
+	\item Which samples define the decision boundary?
+	\begin{enumerate}
+		\item All samples
+		\item Only misclassified samples
+		\item Support vectors
+		\item Random samples
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: Removing non-support vectors changes the classifier.
+	
+	\textbf{Answer: False}
+	
+	\item How many support vectors are required at minimum in $\mathbb{R}^2$?
+	
+	\textbf{Answer: At least 2 (one per class)}
+\end{enumerate}
+
+
+
+\subsection*{Pages 30--34 — Hard-Margin Constraints}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Constraints:
+	\[
+	y_i(\mathbf{w}^\top \mathbf{x}_i + b) \ge 1
+	\]
+	\item Margin hyperplanes:
+	\[
+	\mathbf{w}^\top \mathbf{x} + b = \pm 1
+	\]
+\end{itemize}
+
+\begin{enumerate}
+	\item What does the constraint $y_i(\mathbf{w}^\top \mathbf{x}_i + b)\ge1$ ensure?
+	\begin{enumerate}
+		\item Maximum likelihood
+		\item Correct classification with margin
+		\item Zero training error only
+		\item Kernel validity
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item True or False: All samples satisfy the constraint with equality.
+	
+	\textbf{Answer: False}
+	
+	\item Which samples satisfy equality?
+	
+	\textbf{Answer: Support vectors}
+\end{enumerate}
+
+
+\subsection*{Pages 35--42 — Primal Optimization}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Maximizing margin is equivalent to minimizing $\frac{1}{2}\|\mathbf{w}\|^2$.
+	\item Quadratic optimization with linear constraints.
+\end{itemize}
+
+\begin{enumerate}
+	\item What objective function is minimized?
+	\begin{enumerate}
+		\item $\|\mathbf{w}\|$
+		\item $\|\mathbf{w}\|^2$
+		\item $\frac{1}{2}\|\mathbf{w}\|^2$
+		\item $\|\mathbf{x}\|^2$
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: The primal problem is convex.
+	
+	\textbf{Answer: True}
+	
+	\item What type of optimization problem is this?
+	
+	\textbf{Answer: Quadratic programming}
+\end{enumerate}
+
+
+\subsection*{Pages 43--51 — Dual Problem and KKT Conditions}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Lagrange multipliers $\alpha_i$ are introduced.
+	\item Dual formulation depends only on dot products.
+	\item KKT conditions identify support vectors.
+\end{itemize}
+
+\begin{enumerate}
+	\item What do $\alpha_i > 0$ indicate?
+	\begin{enumerate}
+		\item Misclassified points
+		\item Redundant points
+		\item Support vectors
+		\item Kernel values
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: All training points appear in the decision function.
+	
+	\textbf{Answer: False}
+	
+	\item How is $b$ computed?
+	
+	\textbf{Answer: Using any support vector (usually averaged)}
+\end{enumerate}
+
+
+\subsection*{Pages 52--58 — Linear SVM Example}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Numerical example of linear SVM.
+	\item Explicit computation of $\mathbf{w}$ and $b$.
+	\item Classification using $f(\mathbf{x})$.
+\end{itemize}
+
+\begin{enumerate}
+	\item What does $f(\mathbf{x})$ represent?
+	\begin{enumerate}
+		\item Probability
+		\item Distance from hyperplane
+		\item Classification score
+		\item Kernel value
+	\end{enumerate}
+	\textbf{Answer: (c)}
+	
+	\item True or False: Larger $|f(\mathbf{x})|$ implies higher confidence.
+	
+	\textbf{Answer: True}
+	
+	\item If $f(\mathbf{x})<0$, what is the predicted class?
+	
+	\textbf{Answer: $-1$}
+\end{enumerate}
+
+
+\subsection*{Pages 59--70 — Soft-Margin SVM}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Slack variables $\xi_i$ allow classification errors.
+	\item Parameter $C$ controls margin–error tradeoff.
+\end{itemize}
+
+\begin{enumerate}
+	\item What does a large $C$ emphasize?
+	\begin{enumerate}
+		\item Wider margin
+		\item Fewer errors
+		\item More regularization
+		\item Kernel smoothness
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item True or False: $\xi_i>0$ implies a classification error or margin violation.
+	
+	\textbf{Answer: True}
+	
+	\item What happens when $C \to 0$?
+	
+	\textbf{Answer: Margin dominates, more errors allowed}
+\end{enumerate}
+
+\subsection*{Pages 71--78 — Overfitting and Generalization}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Narrow margins lead to overfitting.
+	\item Allowing errors improves generalization.
+\end{itemize}
+
+\begin{enumerate}
+	\item What causes overfitting in SVM?
+	\begin{enumerate}
+		\item Large margin
+		\item Small margin
+		\item Kernel choice
+		\item Feature scaling
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item True or False: Soft-margin SVM reduces overfitting.
+	
+	\textbf{Answer: True}
+	
+	\item Which parameter mainly controls overfitting?
+	
+	\textbf{Answer: $C$}
+\end{enumerate}
+
+\subsection*{Pages 79--95 — Nonlinear SVM and Kernels}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Data may not be separable by a hyperplane.
+	\item Kernel trick maps data implicitly to higher dimensions.
+	\item Common kernels: linear, polynomial, RBF, sigmoid.
+\end{itemize}
+
+\begin{enumerate}
+	\item What does the kernel trick avoid?
+	\begin{enumerate}
+		\item Optimization
+		\item Explicit feature mapping
+		\item Regularization
+		\item Slack variables
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item True or False: Kernels compute dot products in feature space.
+	
+	\textbf{Answer: True}
+	
+	\item Which kernel corresponds to infinite-dimensional mapping?
+	
+	\textbf{Answer: Gaussian (RBF)}
+\end{enumerate}
+
+
+\subsection*{Pages 96--END — Multiclass Example}
+
+\textbf{Content extract}
+\begin{itemize}
+	\item Iris dataset classification.
+	\item One-vs-all strategy for multiclass SVM.
+	\item Linear and polynomial kernels used.
+\end{itemize}
+
+\begin{enumerate}
+	\item How is multiclass SVM implemented here?
+	\begin{enumerate}
+		\item One-vs-one
+		\item One-vs-all
+		\item Softmax
+		\item Decision trees
+	\end{enumerate}
+	\textbf{Answer: (b)}
+	
+	\item True or False: Linear SVM separates setosa perfectly.
+	
+	\textbf{Answer: True}
+	
+	\item How many binary classifiers are needed for one-vs-all with 3 classes?
+	
+	\textbf{Answer: 3}
+\end{enumerate}
+
+\end{document}

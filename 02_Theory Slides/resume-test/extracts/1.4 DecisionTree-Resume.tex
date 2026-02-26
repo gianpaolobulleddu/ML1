@@ -1,0 +1,106 @@
+\documentclass{article}
+
+\begin{document}
+	
+	DECISION TREES — SUMMARY (UNIT 1.4)
+	
+	\bigskip
+	
+	\textbf{1. What is a Decision Tree}
+	
+	A decision tree is a supervised learning model mainly used for classification.
+	It represents a decision process as a tree structure composed of internal nodes,
+	branches, and leaves. Internal nodes test attributes, branches correspond to
+	attribute values, and leaves assign class labels. Classification is obtained
+	by following a path from the root to a leaf.
+	
+	\bigskip
+	
+	\textbf{2. Logical Interpretation}
+	
+	Decision trees can be interpreted as rule-based models. Each root-to-leaf path
+	corresponds to a conjunction of conditions, while the full tree represents a
+	disjunction of conjunctions. This logical form makes decision trees highly
+	interpretable and suitable for explanation.
+	
+	\bigskip
+	
+	\textbf{3. Space Partitioning View}
+	
+	From a geometric perspective, decision trees recursively partition the feature
+	space into disjoint regions. Each leaf corresponds to one region. The splits are
+	usually axis-aligned, meaning that each decision tests a single attribute at a
+	time. Deeper trees create more and smaller regions.
+	
+	\bigskip
+	
+	\textbf{4. Tree Construction}
+	
+	Decision trees are built using a top-down greedy strategy. Starting from the
+	root, the algorithm selects the best attribute to split the data, partitions
+	the dataset accordingly, and repeats the process recursively. The construction
+	stops when the data are pure or no attributes remain.
+	
+	\bigskip
+	
+	\textbf{5. ID3 Algorithm}
+	
+	ID3 is a classical algorithm for building decision trees. It constructs the tree
+	top-down and selects attributes using information gain. ID3 assumes discrete
+	attributes, does not handle continuous features natively, and does not perform
+	pruning. As a result, it may produce deep trees that overfit the training data.
+	
+	\bigskip
+	
+	\textbf{6. Entropy}
+	
+	Entropy is a measure of uncertainty or impurity in a dataset. It is low when most
+	instances belong to the same class and high when classes are evenly distributed.
+	Entropy is minimal for pure nodes and maximal when class proportions are equal.
+	
+	\bigskip
+	
+	\textbf{7. Information Gain}
+	
+	Information gain measures the reduction in entropy achieved by splitting the
+	data using a particular attribute. Attributes that produce purer subsets have
+	higher information gain. However, attributes with many values may be favored,
+	which can bias the splitting process.
+	
+	\bigskip
+	
+	\textbf{8. Overfitting in Decision Trees}
+	
+	Decision trees are prone to overfitting, especially when they grow very deep or
+	when the data contain noise. Overfitting leads to high variance and poor
+	generalization to unseen data.
+	
+	\bigskip
+	
+	\textbf{9. Pruning}
+	
+	Pruning is used to reduce overfitting by simplifying the tree structure.
+	Pre-pruning stops the growth of the tree early, while post-pruning removes
+	branches after the full tree has been built. Pruning improves generalization,
+	reduces variance, and often increases interpretability.
+	
+	\bigskip
+	
+	\textbf{10. Strengths and Limitations}
+	
+	\textbf{Strengths}
+	\begin{itemize}
+		\item High interpretability
+		\item Natural handling of categorical data
+		\item No need for feature scaling
+	\end{itemize}
+	
+	\textbf{Limitations}
+	\begin{itemize}
+		\item Greedy and locally optimal construction
+		\item High variance
+		\item Axis-aligned splits only
+		\item Sensitivity to noise
+	\end{itemize}
+	
+\end{document}

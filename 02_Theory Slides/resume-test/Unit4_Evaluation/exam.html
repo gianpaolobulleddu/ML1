@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Unit 4 – Evaluation Exam</title>
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)']] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+.correct{color:green;font-weight:bold}
+.wrong{color:red;font-weight:bold}
+#result{margin-top:20px;font-size:18px}
+</style>
+</head>
+<body>
+
+<h1>Unit 4 – Evaluation of ML Systems</h1>
+<div id="exam"></div>
+<button onclick="submitExam()">Submit Exam</button>
+<div id="result"></div>
+
+<script src="questions.js"></script>
+<script>
+const exam=document.getElementById("exam");
+QUESTIONS.forEach((q,i)=>{
+  exam.insertAdjacentHTML("beforeend",
+    `<p><b>${i+1}. ${q.text}</b><br>` +
+    q.options.map((o,j)=>`
+      <label data-q="${i}">
+        <input type="radio" name="q${i}" value="${j}"> ${o}
+      </label><br>
+    `).join("") +
+    "</p>"
+  );
+});
+MathJax.typesetPromise();
+
+function submitExam(){
+  let correct=0, wrong=0;
+  const answers=[];
+
+  QUESTIONS.forEach((q,i)=>{
+    const sel=document.querySelector(`input[name=q${i}]:checked`);
+    const labs=document.querySelectorAll(`label[data-q='${i}']`);
+    labs[q.answer].classList.add("correct");
+
+    let given=null;
+    if(sel){
+      given=parseInt(sel.value);
+      if(given===q.answer) correct++;
+      else{
+        wrong++;
+        sel.parentElement.classList.add("wrong");
+      }
+    } else {
+      wrong++;
+    }
+
+    answers.push({
+      question_id:q.id,
+      section:q.section,
+      given_answer:given,
+      correct_answer:q.answer,
+      is_correct:given===q.answer
+    });
+  });
+
+  const score = correct*1.25 - wrong*(1.25/3);
+  const percentage = (correct/QUESTIONS.length)*100;
+
+  document.getElementById("result").innerHTML =
+    `<b>Correct:</b> ${correct}<br>` +
+    `<b>Wrong:</b> ${wrong}<br>` +
+    `<b>Score:</b> ${score.toFixed(2)}<br>` +
+    `<b>Percentage:</b> ${percentage.toFixed(1)}%<br>` +
+    `<b>Status:</b> ${percentage>=40 ? "PASSED" : "FAILED"}`;
+
+  const attempt={
+    timestamp:new Date().toISOString(),
+    total_questions:QUESTIONS.length,
+    correct, wrong,
+    score, percentage,
+    passed: percentage>=40,
+    answers
+  };
+
+  const blob=new Blob([JSON.stringify(attempt,null,2)],{type:"application/json"});
+  const a=document.createElement("a");
+  a.href=URL.createObjectURL(blob);
+  a.download="exam_attempt.json";
+  a.click();
+}
+</script>
+</body>
+</html>

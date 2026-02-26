@@ -1,0 +1,630 @@
+\documentclass{article}
+
+\begin{document}
+	
+	SUPPORT VECTOR MACHINES — ADVANCED EXAM WITH ANSWERS
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 1 — INTRODUCTION TO SVM
+	
+	\begin{enumerate}
+		\item Which learning paradigm best describes SVM?
+		\begin{enumerate}
+			\item Unsupervised learning
+			\item Reinforcement learning
+			\item Supervised learning
+			\item Self-supervised learning
+		\end{enumerate}
+		
+		\item The original formulation of SVM targets:
+		\begin{enumerate}
+			\item Density estimation
+			\item Binary classification
+			\item Multiclass classification
+			\item Regression only
+		\end{enumerate}
+		
+		\item SVM theory is primarily based on:
+		\begin{enumerate}
+			\item Empirical risk minimization
+			\item Structural risk minimization
+			\item Maximum likelihood estimation
+			\item Bayesian inference
+		\end{enumerate}
+		
+		\item A key reason SVMs generalize well is:
+		\begin{enumerate}
+			\item Large training sets
+			\item Margin maximization
+			\item Feature normalization
+			\item Kernel complexity
+		\end{enumerate}
+		
+		\item Which property distinguishes SVMs from k-NN?
+		\begin{enumerate}
+			\item Non-parametric nature
+			\item Margin-based optimization
+			\item Distance-based decisions
+			\item Instance-based learning
+		\end{enumerate}
+		
+		\item In their basic form, SVMs assume data are:
+		\begin{enumerate}
+			\item Noisy
+			\item Perfectly separable
+			\item Sequential
+			\item Probabilistic
+		\end{enumerate}
+		
+		\item Which quantity is explicitly optimized during training?
+		\begin{enumerate}
+			\item Classification accuracy
+			\item Margin width
+			\item Likelihood
+			\item Entropy
+		\end{enumerate}
+		
+		\item Which statement is true for classical SVMs?
+		\begin{enumerate}
+			\item They minimize squared error
+			\item They produce probabilistic outputs
+			\item They rely on convex optimization
+			\item They require gradient descent
+		\end{enumerate}
+		
+		\item Compared to neural networks, SVMs:
+		\begin{enumerate}
+			\item Always require more data
+			\item Have a unique global optimum
+			\item Are always faster to train
+			\item Learn hierarchical features
+		\end{enumerate}
+		
+		\item SVMs are particularly effective when:
+		\begin{enumerate}
+			\item Number of features is very small
+			\item Data dimensionality is high
+			\item Classes overlap heavily
+			\item Labels are uncertain
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1C, 2B, 3B, 4B, 5B, 6B, 7B, 8C, 9B, 10B
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 2 — TRAINING DATA
+	
+	\begin{enumerate}
+		\item Each SVM training sample is represented as:
+		\begin{enumerate}
+			\item Feature vector only
+			\item Label only
+			\item Feature vector and label
+			\item Probability and label
+		\end{enumerate}
+		
+		\item The label space in classical SVMs is:
+		\begin{enumerate}
+			\item Continuous
+			\item Multiclass
+			\item Binary
+			\item Ordinal
+		\end{enumerate}
+		
+		\item Why are labels encoded as minus one and plus one?
+		\begin{enumerate}
+			\item Numerical convenience
+			\item Probabilistic interpretation
+			\item Kernel compatibility
+			\item Data normalization
+		\end{enumerate}
+		
+		\item Feature dimensionality affects:
+		\begin{enumerate}
+			\item Margin definition
+			\item Kernel computation
+			\item Decision boundary complexity
+			\item All of the above
+		\end{enumerate}
+		
+		\item Training data must be:
+		\begin{enumerate}
+			\item Ordered
+			\item Fully labeled
+			\item Balanced
+			\item Normalized
+		\end{enumerate}
+		
+		\item If labels are noisy, SVM performance:
+		\begin{enumerate}
+			\item Always improves
+			\item Becomes undefined
+			\item Requires soft margin
+			\item Requires kernel removal
+		\end{enumerate}
+		
+		\item The index i in training pairs denotes:
+		\begin{enumerate}
+			\item Feature index
+			\item Dimension index
+			\item Sample index
+			\item Class index
+		\end{enumerate}
+		
+		\item What happens if training labels are incorrect?
+		\begin{enumerate}
+			\item Margin increases
+			\item Optimization fails
+			\item Slack variables become active
+			\item Kernel degenerates
+		\end{enumerate}
+		
+		\item SVMs can handle missing labels:
+		\begin{enumerate}
+			\item Always
+			\item With modification
+			\item Never
+			\item Only with kernels
+		\end{enumerate}
+		
+		\item Feature scaling is important because:
+		\begin{enumerate}
+			\item It changes labels
+			\item It affects margin geometry
+			\item It removes support vectors
+			\item It avoids overfitting
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1C, 2C, 3A, 4D, 5B, 6C, 7C, 8C, 9B, 10B
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 3 — HYPERPLANE AND DECISION FUNCTION
+	
+	\begin{enumerate}
+		\item The separating hyperplane is defined as:
+		\begin{enumerate}
+			\item w + x + b = 0
+			\item w transpose x plus b equals zero
+			\item x transpose x equals one
+			\item w equals zero
+		\end{enumerate}
+		
+		\item The vector w is:
+		\begin{enumerate}
+			\item Parallel to the hyperplane
+			\item Orthogonal to the hyperplane
+			\item Tangent to the margin
+			\item Independent of data
+		\end{enumerate}
+		
+		\item The bias term b determines:
+		\begin{enumerate}
+			\item Orientation
+			\item Offset
+			\item Margin width
+			\item Regularization
+		\end{enumerate}
+		
+		\item Decision boundary corresponds to:
+		\begin{enumerate}
+			\item Maximum margin
+			\item Zero decision function
+			\item Maximum likelihood
+			\item Kernel output
+		\end{enumerate}
+		
+		\item Classification depends on:
+		\begin{enumerate}
+			\item Absolute value of w
+			\item Sign of decision function
+			\item Kernel type
+			\item Number of samples
+		\end{enumerate}
+		
+		\item Points exactly on the boundary satisfy:
+		\begin{enumerate}
+			\item Positive score
+			\item Negative score
+			\item Zero score
+			\item Unit score
+		\end{enumerate}
+		
+		\item Changing b while fixing w will:
+		\begin{enumerate}
+			\item Rotate the hyperplane
+			\item Shift the hyperplane
+			\item Change margin size
+			\item Change kernel
+		\end{enumerate}
+		
+		\item Scaling w and b by the same factor:
+		\begin{enumerate}
+			\item Changes the boundary
+			\item Preserves the boundary
+			\item Eliminates margin
+			\item Changes labels
+		\end{enumerate}
+		
+		\item Decision function values can be interpreted as:
+		\begin{enumerate}
+			\item Probabilities
+			\item Distances up to scale
+			\item Likelihoods
+			\item Errors
+		\end{enumerate}
+		
+		\item A larger absolute decision value implies:
+		\begin{enumerate}
+			\item Lower confidence
+			\item Higher confidence
+			\item Misclassification
+			\item Kernel failure
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3B, 4B, 5B, 6C, 7B, 8B, 9B, 10B
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 4 — MARGIN AND SUPPORT VECTORS
+	
+	\begin{enumerate}
+		\item The margin is defined as:
+		\begin{enumerate}
+			\item Distance to origin
+			\item Distance between centroids
+			\item Distance between margin hyperplanes
+			\item Distance between all samples
+		\end{enumerate}
+		
+		\item Maximizing margin corresponds to:
+		\begin{enumerate}
+			\item Minimizing w norm
+			\item Maximizing likelihood
+			\item Minimizing error
+			\item Maximizing entropy
+		\end{enumerate}
+		
+		\item Support vectors are points that:
+		\begin{enumerate}
+			\item Are misclassified
+			\item Lie on the margin
+			\item Are far from boundary
+			\item Are randomly chosen
+		\end{enumerate}
+		
+		\item Removing non-support vectors:
+		\begin{enumerate}
+			\item Changes solution
+			\item Has no effect
+			\item Increases margin
+			\item Breaks optimization
+		\end{enumerate}
+		
+		\item Margin width depends on:
+		\begin{enumerate}
+			\item All samples
+			\item Support vectors only
+			\item Kernel type only
+			\item Dimensionality only
+		\end{enumerate}
+		
+		\item A small margin usually implies:
+		\begin{enumerate}
+			\item Better generalization
+			\item Overfitting
+			\item Underfitting
+			\item No solution
+		\end{enumerate}
+		
+		\item Support vectors have:
+		\begin{enumerate}
+			\item Zero multipliers
+			\item Positive multipliers
+			\item Negative multipliers
+			\item No multipliers
+		\end{enumerate}
+		
+		\item Margin maximization is a form of:
+		\begin{enumerate}
+			\item Empirical risk minimization
+			\item Structural risk minimization
+			\item Heuristic optimization
+			\item Bayesian inference
+		\end{enumerate}
+		
+		\item Increasing dimensionality generally:
+		\begin{enumerate}
+			\item Decreases margin
+			\item Has no effect
+			\item Increases separability
+			\item Eliminates support vectors
+		\end{enumerate}
+		
+		\item The margin is invariant to:
+		\begin{enumerate}
+			\item Scaling of w and b
+			\item Feature normalization
+			\item Kernel choice
+			\item Slack variables
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1C, 2A, 3B, 4B, 5B, 6B, 7B, 8B, 9C, 10A
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 5 — SOFT MARGIN AND PARAMETER C
+	
+	\begin{enumerate}
+		\item Slack variables represent:
+		\begin{enumerate}
+			\item Feature noise
+			\item Margin violations
+			\item Kernel error
+			\item Scaling error
+		\end{enumerate}
+		
+		\item The parameter C controls:
+		\begin{enumerate}
+			\item Kernel smoothness
+			\item Margin-error tradeoff
+			\item Feature scaling
+			\item Dimensionality
+		\end{enumerate}
+		
+		\item A large C leads to:
+		\begin{enumerate}
+			\item Wider margins
+			\item More regularization
+			\item Fewer training errors
+			\item Smaller model
+		\end{enumerate}
+		
+		\item A small C encourages:
+		\begin{enumerate}
+			\item Hard-margin behavior
+			\item Wider margin
+			\item Perfect classification
+			\item Kernel removal
+		\end{enumerate}
+		
+		\item Soft-margin SVM is useful when:
+		\begin{enumerate}
+			\item Data are noise-free
+			\item Classes overlap
+			\item Features are binary
+			\item Kernels are linear
+		\end{enumerate}
+		
+		\item If C tends to infinity:
+		\begin{enumerate}
+			\item Margin dominates
+			\item Errors dominate
+			\item Hard-margin is recovered
+			\item Optimization fails
+		\end{enumerate}
+		
+		\item If C tends to zero:
+		\begin{enumerate}
+			\item Margin ignored
+			\item Errors ignored
+			\item Margin dominates
+			\item No solution exists
+		\end{enumerate}
+		
+		\item Slack variables are constrained to be:
+		\begin{enumerate}
+			\item Negative
+			\item Zero
+			\item Non-negative
+			\item Binary
+		\end{enumerate}
+		
+		\item Soft-margin optimization remains:
+		\begin{enumerate}
+			\item Non-convex
+			\item Convex
+			\item Discrete
+			\item Probabilistic
+		\end{enumerate}
+		
+		\item Increasing C generally:
+		\begin{enumerate}
+			\item Reduces overfitting
+			\item Increases overfitting
+			\item Has no effect
+			\item Removes kernels
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3C, 4B, 5B, 6C, 7C, 8C, 9B, 10B
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 6 — NONLINEAR SVM AND KERNELS
+	
+	\begin{enumerate}
+		\item Kernels allow SVMs to:
+		\begin{enumerate}
+			\item Reduce dimensions
+			\item Operate in implicit feature spaces
+			\item Avoid optimization
+			\item Remove slack variables
+		\end{enumerate}
+		
+		\item The kernel trick replaces:
+		\begin{enumerate}
+			\item Optimization
+			\item Dot products
+			\item Regularization
+			\item Labels
+		\end{enumerate}
+		
+		\item Which kernel maps to infinite dimensions?
+		\begin{enumerate}
+			\item Linear
+			\item Polynomial
+			\item Gaussian
+			\item Sigmoid
+		\end{enumerate}
+		
+		\item Polynomial kernels control complexity via:
+		\begin{enumerate}
+			\item Degree
+			\item Bias only
+			\item Dimensionality
+			\item Labels
+		\end{enumerate}
+		
+		\item Kernel choice affects:
+		\begin{enumerate}
+			\item Optimization convexity
+			\item Feature space geometry
+			\item Label encoding
+			\item Slack constraints
+		\end{enumerate}
+		
+		\item A linear kernel implies:
+		\begin{enumerate}
+			\item Nonlinear boundary
+			\item Original feature space
+			\item Infinite dimensions
+			\item Probabilistic output
+		\end{enumerate}
+		
+		\item Overly complex kernels may cause:
+		\begin{enumerate}
+			\item Underfitting
+			\item Overfitting
+			\item No solution
+			\item Kernel failure
+		\end{enumerate}
+		
+		\item Kernel parameters must be:
+		\begin{enumerate}
+			\item Fixed arbitrarily
+			\item Learned analytically
+			\item Tuned via validation
+			\item Ignored
+		\end{enumerate}
+		
+		\item The kernel matrix must be:
+		\begin{enumerate}
+			\item Symmetric positive semi-definite
+			\item Diagonal
+			\item Invertible
+			\item Sparse
+		\end{enumerate}
+		
+		\item Nonlinear SVMs remain:
+		\begin{enumerate}
+			\item Linear classifiers
+			\item Convex optimization problems
+			\item Probabilistic models
+			\item Neural networks
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3C, 4A, 5B, 6B, 7B, 8C, 9A, 10B
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 7 — MULTICLASS SVM
+	
+	\begin{enumerate}
+		\item One-vs-all strategy trains:
+		\begin{enumerate}
+			\item One classifier
+			\item K classifiers
+			\item K(K-1) classifiers
+			\item Two classifiers
+		\end{enumerate}
+		
+		\item Each classifier separates:
+		\begin{enumerate}
+			\item Two classes
+			\item One class vs all others
+			\item All classes jointly
+			\item Random subsets
+		\end{enumerate}
+		
+		\item Final prediction is based on:
+		\begin{enumerate}
+			\item Minimum margin
+			\item Maximum decision score
+			\item Random choice
+			\item Kernel output
+		\end{enumerate}
+		
+		\item One-vs-one strategy requires:
+		\begin{enumerate}
+			\item K classifiers
+			\item K-1 classifiers
+			\item K(K-1)/2 classifiers
+			\item 2K classifiers
+		\end{enumerate}
+		
+		\item Multiclass SVMs are:
+		\begin{enumerate}
+			\item Exact extensions
+			\item Heuristic decompositions
+			\item Unsupervised
+			\item Kernel-free
+		\end{enumerate}
+		
+		\item Which strategy scales better with classes?
+		\begin{enumerate}
+			\item One-vs-all
+			\item One-vs-one
+			\item Both equally
+			\item Neither
+		\end{enumerate}
+		
+		\item In practice, multiclass SVM performance depends on:
+		\begin{enumerate}
+			\item Kernel choice
+			\item Decomposition strategy
+			\item Data distribution
+			\item All of the above
+		\end{enumerate}
+		
+		\item Ambiguities in multiclass SVM arise when:
+		\begin{enumerate}
+			\item All scores are negative
+			\item Multiple classifiers give high scores
+			\item Kernel fails
+			\item Margin is zero
+		\end{enumerate}
+		
+		\item One-vs-all may suffer from:
+		\begin{enumerate}
+			\item Class imbalance
+			\item Convexity loss
+			\item Kernel invalidity
+			\item No optimization
+		\end{enumerate}
+		
+		\item Multiclass SVMs remain:
+		\begin{enumerate}
+			\item Non-convex
+			\item Convex per subproblem
+			\item Probabilistic
+			\item Unsupervised
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3B, 4C, 5B, 6A, 7D, 8B, 9A, 10B
+	
+\end{document}

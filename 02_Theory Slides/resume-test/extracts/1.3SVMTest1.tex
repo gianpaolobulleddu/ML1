@@ -1,0 +1,350 @@
+\documentclass{article}
+
+\begin{document}
+	
+	SUPPORT VECTOR MACHINES — COMPLETE EXAM WITH ANSWERS
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 1 — INTRODUCTION TO SVM
+	
+	\begin{enumerate}
+		\item What is the primary task of a Support Vector Machine?
+		\begin{enumerate}
+			\item Clustering
+			\item Dimensionality reduction
+			\item Classification
+			\item Reinforcement learning
+		\end{enumerate}
+		
+		\item SVMs originate from:
+		\begin{enumerate}
+			\item Bayesian inference
+			\item Statistical Learning Theory
+			\item Information theory
+			\item Graph theory
+		\end{enumerate}
+		
+		\item Basic SVMs are mainly designed for:
+		\begin{enumerate}
+			\item Regression
+			\item Binary classification
+			\item Multilabel classification
+			\item Unsupervised learning
+		\end{enumerate}
+		
+		\item A key advantage of SVMs is:
+		\begin{enumerate}
+			\item No hyperparameters
+			\item Strong theoretical foundation
+			\item Automatic feature learning
+			\item Guaranteed zero error
+		\end{enumerate}
+		
+		\item The output of a standard SVM is:
+		\begin{enumerate}
+			\item Probability
+			\item Continuous score only
+			\item Binary label
+			\item Cluster index
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1C, 2B, 3B, 4B, 5C
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 2 — TRAINING DATA
+	
+	\begin{enumerate}
+		\item Each SVM training example consists of:
+		\begin{enumerate}
+			\item Two feature vectors
+			\item One feature vector and one label
+			\item One label only
+			\item Two labels
+		\end{enumerate}
+		
+		\item Feature vectors belong to:
+		\begin{enumerate}
+			\item Real numbers
+			\item Two-dimensional space
+			\item n-dimensional space
+			\item Natural numbers
+		\end{enumerate}
+		
+		\item Class labels are usually:
+		\begin{enumerate}
+			\item Continuous
+			\item Zero and one
+			\item Minus one and plus one
+			\item One, two, three
+		\end{enumerate}
+		
+		\item The index i refers to:
+		\begin{enumerate}
+			\item Feature index
+			\item Dimension index
+			\item Sample index
+			\item Class index
+		\end{enumerate}
+		
+		\item SVM training data must be:
+		\begin{enumerate}
+			\item Unlabeled
+			\item Weakly labeled
+			\item Fully labeled
+			\item Sequential
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2C, 3C, 4C, 5C
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 3 — HYPERPLANE AND DECISION FUNCTION
+	
+	\begin{enumerate}
+		\item The separating hyperplane is defined by:
+		\begin{enumerate}
+			\item w + x + b = 0
+			\item w transpose x plus b equals zero
+			\item x transpose x plus b equals zero
+			\item w transpose w equals one
+		\end{enumerate}
+		
+		\item The vector w controls:
+		\begin{enumerate}
+			\item Orientation of the hyperplane
+			\item Offset of the hyperplane
+			\item Margin width
+			\item Kernel choice
+		\end{enumerate}
+		
+		\item The bias term b controls:
+		\begin{enumerate}
+			\item Orientation
+			\item Offset
+			\item Dimensionality
+			\item Regularization
+		\end{enumerate}
+		
+		\item A point is on the decision boundary if:
+		\begin{enumerate}
+			\item w transpose x plus b is positive
+			\item w transpose x plus b is negative
+			\item w transpose x plus b equals zero
+			\item w transpose x plus b equals one
+		\end{enumerate}
+		
+		\item Classification is based on:
+		\begin{enumerate}
+			\item Distance from origin
+			\item Magnitude of x
+			\item Sign of w transpose x plus b
+			\item Kernel value only
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2A, 3B, 4C, 5C
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 4 — MARGIN AND SUPPORT VECTORS
+	
+	\begin{enumerate}
+		\item The margin is:
+		\begin{enumerate}
+			\item Distance between centroids
+			\item Distance between margin hyperplanes
+			\item Distance from origin
+			\item Distance between all samples
+		\end{enumerate}
+		
+		\item SVM optimization aims to:
+		\begin{enumerate}
+			\item Minimize training error only
+			\item Maximize likelihood
+			\item Maximize margin
+			\item Maximize variance
+		\end{enumerate}
+		
+		\item Support vectors are:
+		\begin{enumerate}
+			\item All samples
+			\item Misclassified samples
+			\item Samples on the margin
+			\item Random samples
+		\end{enumerate}
+		
+		\item Which samples define the classifier?
+		\begin{enumerate}
+			\item All samples
+			\item Support vectors
+			\item Nearest neighbors
+			\item Class centroids
+		\end{enumerate}
+		
+		\item Larger margins usually:
+		\begin{enumerate}
+			\item Increase overfitting
+			\item Reduce robustness
+			\item Improve generalization
+			\item Have no effect
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2C, 3C, 4B, 5C
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 5 — SOFT MARGIN AND PARAMETER C
+	
+	\begin{enumerate}
+		\item Slack variables are introduced to:
+		\begin{enumerate}
+			\item Increase margin
+			\item Allow errors
+			\item Remove kernels
+			\item Normalize data
+		\end{enumerate}
+		
+		\item The parameter C controls:
+		\begin{enumerate}
+			\item Kernel type
+			\item Margin–error tradeoff
+			\item Dimensionality
+			\item Feature scaling
+		\end{enumerate}
+		
+		\item A large value of C emphasizes:
+		\begin{enumerate}
+			\item Wider margin
+			\item Fewer errors
+			\item More regularization
+			\item Lower complexity
+		\end{enumerate}
+		
+		\item A small value of C results in:
+		\begin{enumerate}
+			\item Narrow margin
+			\item Hard-margin behavior
+			\item Wider margin with more errors
+			\item No solution
+		\end{enumerate}
+		
+		\item Soft-margin SVM is mainly used to:
+		\begin{enumerate}
+			\item Handle noisy data
+			\item Eliminate support vectors
+			\item Avoid kernels
+			\item Reduce dimensions
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3B, 4C, 5A
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 6 — NONLINEAR SVM AND KERNELS
+	
+	\begin{enumerate}
+		\item Kernels are used to:
+		\begin{enumerate}
+			\item Reduce dimensionality
+			\item Compute dot products in feature space
+			\item Remove slack variables
+			\item Normalize data
+		\end{enumerate}
+		
+		\item The kernel trick avoids:
+		\begin{enumerate}
+			\item Optimization
+			\item Explicit feature mapping
+			\item Regularization
+			\item Classification
+		\end{enumerate}
+		
+		\item Which kernel corresponds to infinite dimensions?
+		\begin{enumerate}
+			\item Linear
+			\item Polynomial
+			\item Gaussian (RBF)
+			\item Sigmoid
+		\end{enumerate}
+		
+		\item A linear kernel is equivalent to:
+		\begin{enumerate}
+			\item Nonlinear SVM
+			\item Hard-margin SVM always
+			\item Linear SVM
+			\item Neural network
+		\end{enumerate}
+		
+		\item Kernel choice mainly affects:
+		\begin{enumerate}
+			\item Data labels
+			\item Feature space geometry
+			\item Number of samples
+			\item Training size
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2B, 3C, 4C, 5B
+	
+	\bigskip
+	==================================================
+	
+	PARAGRAPH 7 — MULTICLASS SVM
+	
+	\begin{enumerate}
+		\item Multiclass SVMs are usually implemented using:
+		\begin{enumerate}
+			\item Softmax
+			\item One-vs-all
+			\item K-means
+			\item PCA
+		\end{enumerate}
+		
+		\item In one-vs-all with K classes, how many classifiers are trained?
+		\begin{enumerate}
+			\item K
+			\item K-1
+			\item K(K-1)
+			\item 2K
+		\end{enumerate}
+		
+		\item Each binary classifier separates:
+		\begin{enumerate}
+			\item One class vs all others
+			\item All classes simultaneously
+			\item Pairs of classes
+			\item Random subsets
+		\end{enumerate}
+		
+		\item Final class decision is based on:
+		\begin{enumerate}
+			\item Random choice
+			\item Highest decision score
+			\item Smallest margin
+			\item Kernel value
+		\end{enumerate}
+		
+		\item One-vs-all strategy is:
+		\begin{enumerate}
+			\item Exact
+			\item Heuristic but effective
+			\item Unsupervised
+			\item Kernel-free
+		\end{enumerate}
+	\end{enumerate}
+	
+	Correct answers: 1B, 2A, 3A, 4B, 5B
+	
+\end{document}
